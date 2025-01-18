@@ -1,16 +1,19 @@
-import "./globals.css";
+import { RandomFox } from "@/components/RandomFox";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div>
-      <main>
+    
        <h1 className="text-3xl font-bold underline text-violet-500">
     Hello world!
-  </h1>
-      </main>
+      </h1>
+      
+      <RandomFox/>
+      
       <footer >
         
       </footer>
     </div>
   );
 }
+export default Home
