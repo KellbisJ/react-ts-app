@@ -1,6 +1,7 @@
+import React from "react";
 import { RandomFox } from "@/components/RandomFox";
 
-const Home: React.FC = () => {
+const Home = (): React.JSX.Element => {
   return (
     <div>
     
