@@ -1,6 +1,10 @@
 import React from "react";
 import { RandomFox } from "@/components/RandomFox";
 
+const random = (): number => {
+  return Math.floor(Math.random() * 123 + 1)
+}
+
 const Home = (): React.JSX.Element => {
   return (
     <div>
@@ -9,7 +13,7 @@ const Home = (): React.JSX.Element => {
     Hello world!
       </h1>
       
-      <RandomFox/>
+      <RandomFox image={ `https://randomfox.ca/images/${random()}.jpg`} />
       
       <footer >
         
