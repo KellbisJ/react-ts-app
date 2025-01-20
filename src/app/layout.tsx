@@ -13,7 +13,7 @@ export default function RootLayout({
         <title>Random_Fox</title>
       </head>
       <body className="min-h-screen flex flex-col">
-        <main className="flex-grow p-4">
+        <main className="flex-grow">
           {children}
         </main>
         <Footer/>
