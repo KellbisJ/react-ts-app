@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { MouseEventHandler} from "react" // Use go to definition and watch how the types are defined. And then you can import those types, like in this case a type that is related with the DOM
-import { RandomFox } from "@/components/RandomFox";
+import { LazyImage } from "@/components/RandomFox";
 
 type ImageFox = { id: string, url: string}
 
@@ -33,7 +33,11 @@ const Home = (): React.JSX.Element => {
         <button className="p-2 min-w-28 bg-rose-500 hover:bg-rose-600 rounded text-blue-50" onClick={addNewFox}>Add Fox</button>
       {images.map(({id, url}) => (
         <div key={id} className="p-4">
-  <RandomFox image={ url} />
+          <LazyImage
+            className="w-[320px] h-auto rounded bg-gray-300"
+            src={url}
+            onClick={() => console.log('heyy')
+          }/>
         </div>
 
       ))}
