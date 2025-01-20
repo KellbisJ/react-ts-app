@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { MouseEventHandler} from "react" // Use go to definition and watch how the types are defined. And then you can import those types, like in this case a type that is related with the DOM
 import { RandomFox } from "@/components/RandomFox";
-import { log } from "console";
 
 type ImageFox = { id: string, url: string}
 
@@ -11,18 +11,26 @@ const random = (): number => {
 }
 
 const Home = (): React.JSX.Element => {
-  const [images, setImages] = useState<Array<ImageFox>>([
-    {id: crypto.randomUUID(), url: `https://randomfox.ca/images/${random()}.jpg`},
-     {id: crypto.randomUUID(), url: `https://randomfox.ca/images/${random()}.jpg`},
-     {id: crypto.randomUUID(), url: `https://randomfox.ca/images/${random()}.jpg`},
-    {id: crypto.randomUUID(), url: `https://randomfox.ca/images/${random()}.jpg`}
-  ])
+  const [images, setImages] = useState<Array<ImageFox>>([])
 
-  console.log(images);
+  const addNewFox: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.preventDefault()
+  
+
+    const newFoxImage: ImageFox = {
+    id: crypto.randomUUID(),
+    url: `https://randomfox.ca/images/${random()}.jpg`
+    }
+    setImages([
+      ...images,
+      newFoxImage
+    ])
+  }
   
   return (
     <div> 
       <h1 className="text-3xl font-bold underline text-violet-500">Hello world!</h1>
+        <button className="p-2 min-w-28 bg-rose-500 hover:bg-rose-600 rounded text-blue-50" onClick={addNewFox}>Add Fox</button>
       {images.map(({id, url}) => (
         <div key={id} className="p-4">
   <RandomFox image={ url} />
