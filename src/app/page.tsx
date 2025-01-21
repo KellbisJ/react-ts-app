@@ -26,16 +26,17 @@ const Home = (): React.JSX.Element => {
   
   return (
     <div> 
-      <h1 className="text-3xl font-bold underline text-violet-500">Hello world!</h1>
-      <button className="p-2 min-w-28 bg-rose-500 hover:bg-rose-600 rounded text-blue-50" onClick={addNewFox}>Add Fox</button>
+      <h1 className="text-xl lg:text-3xl font-bold text-violet-500 px-4 py-2">Random Fox Images</h1>
+      <div className="flex justify-center mb-12">
+        <button className="p-2 min-w-28 bg-rose-500 hover:bg-rose-600 rounded text-blue-50 fixed top-11 z-10 text-sm lg:text-base" onClick={addNewFox}>Add Fox</button>
+      </div>
       <div className="grid grid-cols-2 lg:grid-cols-4 place-items-center p-2">
          {images.map(({id, url}) => (
-        <div key={id} className="p-2 w-full h-36 lg:h-72 rounded relative">
+        <div key={id} className="p-2 w-full h-36 lg:h-72 rounded">
           <LazyImage
             className="w-full h-full bg-gray-300 rounded object-cover object-center"
             src={url}
-            onClick={() => console.log('heyy')
-          }/>
+            />
         </div>
 
       ))}
