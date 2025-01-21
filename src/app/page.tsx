@@ -1,13 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { MouseEventHandler} from "react" // Use go to definition and watch how the types are defined. And then you can import those types, like in this case a type that is related with the DOM
+import { MouseEventHandler} from "react"
 import { LazyImage } from "@/components/RandomFox";
+import {random} from "lodash"
 
-
-const random = (): number => {
-  return Math.floor(Math.random() * 123 + 1)
-}
+const randomN = (): number => random(1, 123)
 
 const Home = (): React.JSX.Element => {
   const [images, setImages] = useState<Array<IFoxImage>>([])
@@ -18,7 +16,7 @@ const Home = (): React.JSX.Element => {
 
     const newFoxImage: IFoxImage = {
     id: crypto.randomUUID(),
-    url: `https://randomfox.ca/images/${random()}.jpg?${new Date().getTime()}`
+    url: `https://randomfox.ca/images/${randomN()}.jpg?${new Date().getTime()}`
     }
     setImages([
       ...images,
